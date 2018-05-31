@@ -2,7 +2,7 @@
 
 return array (
   array(
-    'key' => 'nz.co.fuzion.relatedpermissions',
+    'key' => 'uk.co.compucorp.civicrm.relatedpermissions',
     'entity' => 'relationship_type',
     'name' => 'always_permission_a_b',
     'type' => 'Boolean',
@@ -15,7 +15,7 @@ return array (
     'form_child_of_parents_parent' => 'label_a_b',
   ),
   array(
-    'key' => 'nz.co.fuzion.relatedpermissions',
+    'key' => 'uk.co.compucorp.civicrm.relatedpermissions',
     'entity' => 'relationship_type',
     'name' => 'always_permission_b_a',
     'type' => 'Boolean',

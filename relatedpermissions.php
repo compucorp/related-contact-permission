@@ -85,7 +85,7 @@ function relatedpermissions_civicrm_managed(&$entities) {
 function relatedpermissions_civicrm_permission( &$permissions )
 {
     $prefix = ts('CiviCRM') . ': ';
-    $permissions = array(
+    $permissions += array(
         'edit assigned contacts' => $prefix . ts('Cascading Edit Privilege (edit checkboxes only)'),
         'view assigned contacts' => $prefix . ts('Cascading View Privilege (view checkboxes only)')
     );
@@ -130,7 +130,7 @@ function _relatedpermissions_is_permission($entity_id, $direction) {
   static $settings = array();
   if(!isset($settings[$entity_id])) {
     $entity_settings = civicrm_api3('entity_setting', 'get', array(
-      'key' => 'nz.co.fuzion.relatedpermissions',
+      'key' => 'uk.co.compucorp.civicrm.relatedpermissions',
       'entity_id' => $entity_id,
       'entity_type' => 'relationship_type')
     );
