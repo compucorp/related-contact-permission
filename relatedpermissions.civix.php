@@ -152,7 +152,7 @@ function _relatedpermissions_civix_civicrm_managed(&$entities) {
     $es = include $file;
     foreach ($es as $e) {
       if (empty($e['module'])) {
-        $e['module'] = 'nz.co.fuzion.relatedpermissions';
+        $e['module'] = 'uk.co.compucorp.civicrm.relatedpermissions';
       }
       $entities[] = $e;
     }
