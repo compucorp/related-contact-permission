@@ -85,7 +85,7 @@ function relatedpermissions_civicrm_managed(&$entities) {
 function relatedpermissions_civicrm_permission( &$permissions )
 {
     $prefix = ts('CiviCRM') . ': ';
-    $permissions = array(
+    $permissions += array(
         'edit assigned contacts' => $prefix . ts('Cascading Edit Privilege (edit checkboxes only)'),
         'view assigned contacts' => $prefix . ts('Cascading View Privilege (view checkboxes only)')
     );
