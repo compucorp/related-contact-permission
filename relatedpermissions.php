@@ -329,7 +329,14 @@ function relatedpermissions_civicrm_pre($op, $entity, $objectID, &$entityArray)
   }
 
   if ($op == 'edit' || $op == 'create') {
-    $entityArray['is_permission_a_b_v'] = CRM_Utils_Array::value('is_permission_' . $_GET['rtype'] . '_v', $_POST, 0);
-    $entityArray['is_permission_b_a_v'] = CRM_Utils_Array::value('is_permission_' . strrev($_GET['rtype']) . '_v', $_POST, 0);
+    $store = NULL;
+    $entityArray['is_permission_a_b_v'] = CRM_Utils_Request::retrieve('is_permission_a_b_v', 'Boolean', $store, FALSE, 0, 'POST');
+    $entityArray['is_permission_b_a_v'] = CRM_Utils_Request::retrieve('is_permission_b_a_v', 'Boolean', $store, FALSE, 0, 'POST');
+    if(empty($entityArray['is_permission_a_b_v'])) {
+      $entityArray['is_permission_a_b_v'] = 0;
+    }
+    if(empty($entityArray['is_permission_b_a_v'])) {
+      $entityArray['is_permission_b_a_v'] = 0;
+    }
   }
 }
