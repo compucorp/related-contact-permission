@@ -329,14 +329,14 @@ function relatedpermissions_civicrm_pre($op, $entity, $objectID, &$entityArray)
   }
 
   if ($op == 'edit' || $op == 'create') {
-    $rtype = array();
-    foreach($_POST as $k => $v) {
-      if(preg_match('/\bis_permission_[\w%+\/-]+_v\b/', $k)) {
-        $rtype = substr($k, 14, strrpos($k, '_v') - 14);
-        break;
-      }
+    $store = NULL;
+    $entityArray['is_permission_a_b_v'] = CRM_Utils_Request::retrieve('is_permission_a_b_v', 'Boolean', $store, FALSE, 0, 'POST');
+    $entityArray['is_permission_b_a_v'] = CRM_Utils_Request::retrieve('is_permission_b_a_v', 'Boolean', $store, FALSE, 0, 'POST');
+    if(empty($entityArray['is_permission_a_b_v'])) {
+      $entityArray['is_permission_a_b_v'] = 0;
     }
-    $entityArray['is_permission_a_b_v'] = CRM_Utils_Array::value('is_permission_' . $rtype . '_v', $_POST, 0);
-    $entityArray['is_permission_b_a_v'] = CRM_Utils_Array::value('is_permission_' . strrev($rtype) . '_v', $_POST, 0);
+    if(empty($entityArray['is_permission_b_a_v'])) {
+      $entityArray['is_permission_b_a_v'] = 0;
+    }
   }
 }
